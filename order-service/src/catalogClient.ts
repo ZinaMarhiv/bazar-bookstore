@@ -1,6 +1,5 @@
 
-const CATALOG_URL =
-  process.env.CATALOG_URL || "http://localhost:3001";
+const CATALOG_URL = process.env.CATALOG_URL || "http://localhost:3001";
 
 export interface Book {
   id: number;
@@ -29,7 +28,7 @@ async function catalogRequest(
   try {
     response = await fetch(`${CATALOG_URL}${path}`, {
       ...options,
-      signal: AbortSignal.timeout(5000)
+      signal: AbortSignal.timeout(5000),
     });
   } catch {
     throw new CatalogRequestError(
@@ -58,20 +57,22 @@ async function catalogRequest(
   return (await response.json()) as Book;
 }
 
-// Retrieve book information from the Catalog Service.
 export async function getBook(id: number): Promise<Book> {
   return catalogRequest(`/info/${id}`);
 }
 
-// Request an atomic stock decrement from the Catalog Service.
 export async function decrementStock(id: number): Promise<Book> {
   return catalogRequest(`/update/${id}`, {
     method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      quantityChange: -1
-    })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ quantityChange: -1 }),
+  });
+}
+
+export async function restoreStock(id: number): Promise<Book> {
+  return catalogRequest(`/update/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ quantityChange: 1 }),
   });
 }
