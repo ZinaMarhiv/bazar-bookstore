@@ -114,5 +114,6 @@ same file are not supported.
 - Fractional-stock rejection
 - Unsupported-field rejection
 
-The earlier concurrent update test reached zero stock, but its
-success and rejection counts still need confirmation.
+Concurrent update check passed: starting with 3 copies, five
+concurrent decrement requests produced 3 successes and 2 HTTP 409
+rejections. Final stock was 0. Original stock was restored afterward.
