@@ -7,6 +7,10 @@ const port = Number(process.env.PORT) || 3000;
 const catalogUrl =
   process.env.CATALOG_URL || "http://localhost:3001";
 
+
+const orderUrl =
+  process.env.ORDER_URL || "http://localhost:3002";
+
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
@@ -56,6 +60,32 @@ app.get("/info/:id", async (req, res) => {
     });
   }
 });
+
+
+app.post("/purchase/:id", async (req, res) => {
+  try {
+    const id = encodeURIComponent(req.params.id);
+    const result = await callBackend(
+      orderUrl,
+      `/purchase/${id}`,
+      "POST"
+    );
+
+    console.log("Purchase response:", result.body);
+    res.status(result.status).json(result.body);
+  } catch (error) {
+    if (error instanceof BackendError) {
+      res.status(error.status).json({ error: error.message });
+      return;
+    }
+
+    console.error("Purchase request failed:", error);
+    res.status(500).json({
+      error: "Unable to process purchase"
+    });
+  }
+});
+
 
 app.listen(port, "0.0.0.0", () => {
   console.log(`Frontend service listening on port ${port}`);

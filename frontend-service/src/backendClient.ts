@@ -9,10 +9,12 @@ export class BackendError extends Error {
 
 export async function callBackend(
   baseUrl: string,
-  route: string
+  route: string,
+  method: "GET" | "POST" = "GET"
 ): Promise<{ status: number; body: unknown }> {
   try {
     const response = await fetch(`${baseUrl}${route}`, {
+      method,
       signal: AbortSignal.timeout(5000)
     });
 
