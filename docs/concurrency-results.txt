@@ -1,0 +1,13 @@
+Concurrent purchase validation through frontend -> order -> catalog
+
+Test 1:
+Starting stock: 8; starting order count: 11
+Five concurrent purchases: 5 HTTP 201, 0 other results
+Final stock: 3; final order count: 16; unique order IDs: 16
+
+Test 2:
+Starting stock: 3; starting order count: 16
+Five concurrent purchases: 3 HTTP 201, 2 HTTP 409, 0 other results
+Final stock: 0; final order count: 19; unique order IDs: 19
+
+Both tests passed.
