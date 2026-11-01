@@ -1,0 +1,84 @@
+﻿catalog-1   | Catalog service listening on port 3001
+catalog-1   | Book information: {
+catalog-1   |   id: 2,
+catalog-1   |   title: 'RPCs for Noobs.',
+catalog-1   |   topic: 'distributed systems',
+catalog-1   |   quantity: 9,
+catalog-1   |   price: 55
+catalog-1   | }
+catalog-1   | Search results: [
+catalog-1   |   {
+catalog-1   |     id: 1,
+catalog-1   |     title: 'How to get a good grade in DOS in 40 minutes a day.'
+catalog-1   |   },
+catalog-1   |   { id: 2, title: 'RPCs for Noobs.' }
+catalog-1   | ]
+catalog-1   | Book information: {
+catalog-1   |   id: 2,
+catalog-1   |   title: 'RPCs for Noobs.',
+catalog-1   |   topic: 'distributed systems',
+catalog-1   |   quantity: 9,
+catalog-1   |   price: 55
+catalog-1   | }
+catalog-1   | Book information: {
+catalog-1   |   id: 2,
+catalog-1   |   title: 'RPCs for Noobs.',
+catalog-1   |   topic: 'distributed systems',
+catalog-1   |   quantity: 9,
+catalog-1   |   price: 55
+order-1     | Order Service running on port 3002
+catalog-1   | }
+catalog-1   | Updated book: {
+catalog-1   |   id: 2,
+frontend-1  | Frontend service listening on port 3000
+catalog-1   |   title: 'RPCs for Noobs.',
+catalog-1   |   topic: 'distributed systems',
+frontend-1  | Information response: {
+frontend-1  |   id: 2,
+frontend-1  |   title: 'RPCs for Noobs.',
+frontend-1  |   topic: 'distributed systems',
+frontend-1  |   quantity: 9,
+frontend-1  |   price: 55
+frontend-1  | }
+frontend-1  | Search response: [
+catalog-1   |   quantity: 8,
+frontend-1  |   {
+order-1     | bought book RPCs for Noobs.
+catalog-1   |   price: 55
+catalog-1   | }
+catalog-1   | Book information: {
+catalog-1   |   id: 2,
+catalog-1   |   title: 'RPCs for Noobs.',
+catalog-1   |   topic: 'distributed systems',
+catalog-1   |   quantity: 8,
+catalog-1   |   price: 55
+catalog-1   | }
+frontend-1  |     id: 1,
+frontend-1  |     title: 'How to get a good grade in DOS in 40 minutes a day.'
+frontend-1  |   },
+frontend-1  |   { id: 2, title: 'RPCs for Noobs.' }
+frontend-1  | ]
+frontend-1  | Information response: {
+frontend-1  |   id: 2,
+frontend-1  |   title: 'RPCs for Noobs.',
+frontend-1  |   topic: 'distributed systems',
+frontend-1  |   quantity: 9,
+frontend-1  |   price: 55
+frontend-1  | }
+frontend-1  | Purchase response: {
+frontend-1  |   message: 'bought book RPCs for Noobs.',
+frontend-1  |   order: {
+frontend-1  |     orderId: 11,
+frontend-1  |     bookId: 2,
+frontend-1  |     title: 'RPCs for Noobs.',
+frontend-1  |     price: 55,
+frontend-1  |     timestamp: '2026-11-01T21:04:53.515Z'
+frontend-1  |   }
+frontend-1  | }
+frontend-1  | Information response: {
+frontend-1  |   id: 2,
+frontend-1  |   title: 'RPCs for Noobs.',
+frontend-1  |   topic: 'distributed systems',
+frontend-1  |   quantity: 8,
+frontend-1  |   price: 55
+frontend-1  | }

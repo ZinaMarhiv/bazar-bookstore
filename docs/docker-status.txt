@@ -1,0 +1,4 @@
+﻿NAME                         SERVICE    STATUS       PORTS
+bazar-bookstore-catalog-1    catalog    Up 2 hours   
+bazar-bookstore-frontend-1   frontend   Up 2 hours   127.0.0.1:3000->3000/tcp
+bazar-bookstore-order-1      order      Up 2 hours   
