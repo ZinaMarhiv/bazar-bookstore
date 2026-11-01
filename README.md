@@ -5,7 +5,7 @@ Distributed Operating Systems lab project built by a two-person team.
 ## Planned stack
 
 - Node.js, Express, and TypeScript
-- SQLite for persistent storage
+- JSON files for persistent storage
 - Docker Compose for deployment
 - HTTP REST APIs with JSON responses
 
