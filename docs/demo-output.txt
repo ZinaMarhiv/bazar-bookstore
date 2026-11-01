@@ -1,0 +1,102 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261101230450
+Username: DESKTOP-Q8BPPHE\user
+RunAs User: DESKTOP-Q8BPPHE\user
+Configuration Name: 
+Machine: DESKTOP-Q8BPPHE (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\user\AppData\Local\Programs\Microsoft VS Code\e646868227\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 7024
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is docs/demo-output.txt
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>docker compose ps
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>Invoke-RestMethod "http://localhost:3000/health" |
+    ConvertTo-Json -Depth 5
+{
+    "service":  "frontend",
+    "status":  "ok"
+}
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>Invoke-RestMethod "http://localhost:3000/search/distributed%20systems" |
+    ConvertTo-Json -Depth 5
+{
+    "value":  [
+                  {
+                      "id":  1,
+                      "title":  "How to get a good grade in DOS in 40 minutes a day."
+                  },
+                  {
+                      "id":  2,
+                      "title":  "RPCs for Noobs."
+                  }
+              ],
+    "Count":  2
+}
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>$before = Invoke-RestMethod "http://localhost:3000/info/2"
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>$before | ConvertTo-Json -Depth 5
+{
+    "id":  2,
+    "title":  "RPCs for Noobs.",
+    "topic":  "distributed systems",
+    "quantity":  9,
+    "price":  55
+}
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>Invoke-RestMethod -Method Post `
+    -Uri "http://localhost:3000/purchase/2" |
+    ConvertTo-Json -Depth 5
+{
+    "message":  "bought book RPCs for Noobs.",
+    "order":  {
+                  "orderId":  11,
+                  "bookId":  2,
+                  "title":  "RPCs for Noobs.",
+                  "price":  55,
+                  "timestamp":  "2026-11-01T21:04:53.515Z"
+              }
+}
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>$after = Invoke-RestMethod "http://localhost:3000/info/2"
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>$after | ConvertTo-Json -Depth 5
+{
+    "id":  2,
+    "title":  "RPCs for Noobs.",
+    "topic":  "distributed systems",
+    "quantity":  8,
+    "price":  55
+}
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>"Stock decreased by exactly one: $($after.quantity -eq ($before.quantity - 1))"
+Stock decreased by exactly one: True
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>docker compose logs --no-color --tail 30
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cuser\x5cbazarPS C:\Users\user\bazar> ]633;B
+PS>Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261101230454
+**********************
