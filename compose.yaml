@@ -1,0 +1,29 @@
+name: bazar-bookstore
+
+services:
+  catalog:
+    build: ./catalog-service
+    volumes:
+      - ./catalog-service/data:/app/data
+
+  order:
+    build: ./order-service
+    environment:
+      PORT: "3002"
+      CATALOG_URL: http://catalog:3001
+    volumes:
+      - ./order-service/data:/app/data
+    depends_on:
+      - catalog
+
+  frontend:
+    build: ./frontend-service
+    environment:
+      PORT: "3000"
+      CATALOG_URL: http://catalog:3001
+      ORDER_URL: http://order:3002
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - catalog
+      - order
